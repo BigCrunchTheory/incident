@@ -1,9 +1,16 @@
 from logging.config import fileConfig
+import os
+import sys
+from pathlib import Path
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
+
+# Add the project root directory to the Python path
+project_root = str(Path(__file__).parents[1].absolute())
+sys.path.append(project_root)
 
 from app.models import Base
 
